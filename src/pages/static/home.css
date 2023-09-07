@@ -1,0 +1,161 @@
+body {
+    background-image: url("../../assets/main.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.main-content {
+    margin-top: 120%;
+    margin-bottom: 250px;
+    position: relative;
+}
+
+.main-text {
+    position: relative;
+    font-family: "DreamAvenue";
+    font-size: 3.8em;
+    color: ivory;
+    text-transform: uppercase;
+    bottom: -10px;
+}
+
+.initials {
+    padding-bottom: 40px;
+    max-width: 37%;
+}
+
+.main-con {
+    font-family: "Monsieur" !important;
+    font-size: 2.2em;
+    color: ivory;
+    text-transform: lowercase !important;
+}
+
+.day-image {
+    width: 100%;
+}
+
+.invite-wrapper {
+    position: relative;
+    text-align: left;
+    padding-bottom: 210%;
+}
+
+.day-invite,
+.invite-details {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.day-wrapper,
+.invite-wrapper,
+.dresscode-wrapper,
+.smaller-details-wrapper,
+.before-function-wrapper,
+.rsvp-wrapper,
+.accomodation-wrapper,
+.gift-wrapper,
+.closing-wrapper,
+.clock-wrapper {
+    background-color: #224151;
+    border: 2px solid red;
+}
+
+.day-wrapper {
+    padding-bottom: 20%;
+}
+
+.desc-container {
+    max-width: 42%;
+    padding-left: 25px;
+    padding-top: 40px;
+    color: ivory;
+}
+
+.invite-details {
+    z-index: 2;
+    padding-top: 55px;
+}
+
+.what {
+    text-decoration: underline;
+    text-underline-offset: 35%;
+    text-decoration-color: ivory;
+    text-decoration-thickness: 1px;
+    text-decoration-skip-ink: none;
+    font-size: 2.75em !important;
+    padding-left: 12px;
+    padding-top: 50px;
+    font-family: "DreamAvenue";
+    color: ivory;
+    text-transform: uppercase;
+}
+
+.when,
+.where,
+.dresscode,
+.smaller-details,
+.before-function,
+.rsvp,
+.accomodation,
+.gift,
+.closing {
+    font-size: 2.5em;
+    font-family: "DreamAvenue";
+    color: ivory;
+    text-transform: uppercase;
+    padding-left: 15px;
+}
+
+.when-description,
+.where-description,
+.smaller-details-description,
+.dresscode-description {
+    padding: 10px 0 20px 30px;
+    color: ivory;
+}
+
+.dresscode-description {
+    display : block;
+}
+
+.dresscode-image {
+    width: 100%;
+    max-width: 100%;
+    padding-top: 35px;
+}
+
+.dresscode-wrapper {
+    padding-bottom: 20%;
+}
+
+.maps-embed {
+    max-width: 100%;
+    margin-top: 25px;
+}
+
+.iframe-embed {
+    height: 350px;
+    max-width: 400px;
+    width: 95%;
+}
+
+.flip-countdown {
+    background-color: red !important;
+}
+
+.rsvp-content,
+.before-function-content,
+.smaller-details-content,
+.dresscode-content,
+.day-content,
+.day-invite,
+.accomodation-content,
+.gift-content,
+.closing-content {
+    text-align: left;
+}
