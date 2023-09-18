@@ -1,15 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 
-import Image from "react-bootstrap/Image";
 import FlipCountdown from "@rumess/react-flip-countdown";
+import { FloatingLabel, Button, Form, Image } from "react-bootstrap";
 
-import main_description from "../assets/desc.png";
 import initials from "../assets/initials.png";
 import dresscode from "../assets/dresscode.png";
+import desc2 from "../assets/desc2.png";
 
 import "./static/home.css";
 
 function HomePage() {
+    const [name, setName] = useState(""),
+        onInputName = ({ target: { value } }) => setName(value);
+    const [plusOne, setPlusOne] = useState(""),
+        onSetPlusOne = ({ target: { value } }) => setPlusOne(value);
+    const [firstSong, setFirstSong] = useState(""),
+        onSetFirstSong = ({ target: { value } }) => setFirstSong(value);
+    const [secondSong, setSecondSong] = useState(""),
+        onSetSecondSong = ({ target: { value } }) => setSecondSong(value);
+    const [thirdSong, setThirdSong] = useState(""),
+        onSetThirdSong = ({ target: { value } }) => setThirdSong(value);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        await fetch("https://Werner.pythonanywhere.com/contact/reachout/", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: name,
+                plusOne: plusOne,
+                firstSong: firstSong,
+                secondSong: secondSong,
+                thirdSong: thirdSong,
+            }),
+        });
+        window.location.reload(false);
+    };
+
     return (
         <div>
             <div className="main-content">
@@ -23,7 +54,7 @@ function HomePage() {
             </div>
             <div className="invite-wrapper">
                 <div className="day-invite">
-                    <Image className="day-image" src={main_description} />
+                    <Image className="day-image" src={desc2} />
                 </div>
                 <div className="invite-details">
                     <span className="what-wrapper">
@@ -53,9 +84,7 @@ function HomePage() {
                     <br />
                     <div className="where-wrapper">
                         <span className="where">waar</span>
-                        <br />
                         <span className="where-description">Florence Guest Farm,</span>
-                        <br />
                         <span className="where-description">Chrissiesmeer</span>
                     </div>
                     <br />
@@ -100,6 +129,7 @@ function HomePage() {
             <div className="before-function-wrapper">
                 <div className="before-function-content">
                     <span className="before-function">voor-troue funksie (vrydagaand)</span>
+                    <br />
                     <span className="before-function-description">
                         'n Verwelkomingsaand vind Vrydag plaas. Kom geniet 'n rustige aand saam
                         vriende en familie voor die groot dag.
@@ -111,41 +141,111 @@ function HomePage() {
             <div className="rsvp-wrapper">
                 <div className="rsvp-content">
                     <span className="rsvp">rsvp</span>
-                    <span className="rsvp-description me-auto">
+                    <br />
+                    <span className="rsvp-description">
                         2 Februarie 2024
                         <br />
                         <br />
                         RSVP asseblief die naam/name en metgesel (indien enige) van wie die dag gaan
                         meemaak.
                         <br />
+                        <br />
                         Bykomend: Voeg ook 3 liedjie versoeke by en of jy die vrydagaand voor-troue
                         funksie gaan bywwon.
                     </span>
-                    <div className="rsvp-form">TODO ADD RSVP FORM</div>
+                    <br />
+                    <div className="rsvp-form-wrapper">
+                        <div className="rsvp-form">
+                            <Form onSubmit={handleSubmit} className="contact-form">
+                                <FloatingLabel required controlId="floatingInput" className="mb-3">
+                                    <Form.Control
+                                        className="form-input"
+                                        type="text"
+                                        placeholder="Naam"
+                                        onChange={onInputName}
+                                        value={name}
+                                    />
+                                </FloatingLabel>
+                                <FloatingLabel controlId="floatingInput" className="mb-3">
+                                    <Form.Control
+                                        className="form-input"
+                                        type="text"
+                                        placeholder="Metgesel (waar van toepassing)"
+                                        onChange={onSetPlusOne}
+                                        value={plusOne}
+                                    />
+                                </FloatingLabel>
+
+                                <FloatingLabel controlId="floatingInput" className="mb-3">
+                                    <Form.Control
+                                        className="form-input"
+                                        type="text"
+                                        placeholder="Liedjie 1"
+                                        onChange={onSetFirstSong}
+                                        value={firstSong}
+                                    />
+                                </FloatingLabel>
+
+                                <FloatingLabel controlId="floatingInput" className="mb-3">
+                                    <Form.Control
+                                        className="form-input"
+                                        type="text"
+                                        placeholder="Liedjie 2"
+                                        onChange={onSetSecondSong}
+                                        value={secondSong}
+                                    />
+                                </FloatingLabel>
+
+                                <FloatingLabel controlId="floatingTextarea" className="mb-3">
+                                    <Form.Control
+                                        className="form-input"
+                                        type="text"
+                                        placeholder="Liedjie 3"
+                                        onChange={onSetThirdSong}
+                                        value={thirdSong}
+                                    />
+                                </FloatingLabel>
+                                <div>
+                                    <Button className="btn btn-color submit-button" type="submit">
+                                        submit
+                                    </Button>
+                                </div>
+                            </Form>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="accomodation-wrapper">
                 <div className="accomodation-content">
                     <span className="accomodation">verblyf</span>
+                    <br />
                     <span className="accomodation-description">
                         Daar is meer as genoeg en baie mooi verblyf op die venue beskikbaar. Pryse
                         beloop vanaf R500 per persoon vir die "glamping" tente en R700 per persoon
                         vir die chalets.
                         <br />
+                        <br />
                         Beide verblyf opsies sluit ontbyt in.
                         <br />
+                        <br />
                         Verblyf op die venue kan gerus met Ada Willemse gereel word.
+                        <br />
                         <br />
                         {/* TODO Make number clickable */}
                         +2782 457 6322
                         <br />
+                        <br />
                         Alternatiewe verlyf indien die venue se verblyf vol bespreek is:
+                        <br />
                         <br />
                         Chrissiesmeer:
                         <br />
+                        <br />
                         Mcclouds en John Jack Inn - +2783 625 6097
                         <br />
+                        <br />
                         Stasie Meester - +2782 809 7962
+                        <br />
                         <br />
                         King Edward Straat B&B - +2783 554 2068
                     </span>
@@ -154,10 +254,14 @@ function HomePage() {
             <div className="gift-wrapper">
                 <div className="gift-content">
                     <span className="gift">geskenk idee</span>
+                    <br />
                     <span className="gift-description">
-                        Die grootste geskenk is jou teenwoordigheid op die dag van ons troue. Indien
-                        jy dit op jou hart het om ons nog verder te bederf sal n finansiele bydrae
-                        waardeer word.
+                        Die grootste geskenk is jou teenwoordigheid op die dag van ons troue.
+                        <br />
+                        <br />
+                        Indien jy dit op jou hart het om ons nog verder te bederf sal n finansiele
+                        bydrae waardeer word.
+                        <br />
                         <br />
                         Daar sal 'n houer op die dag beskikbaar wees waarin die koeverte geplaas kan
                         word.
@@ -166,12 +270,12 @@ function HomePage() {
             </div>
             <div className="closing-wrapper">
                 <div className="closing-content">
-                    <span className="closing">Afsluiting</span>
                     <span className="closing-description">
                         Ons sien baie uit om ons spesiale dag met jou te deel.
                     </span>
                 </div>
             </div>
+            <div className="images-wrapper"></div>
             <div className="clock-wrapper">
                 <div className="countdown-clock">
                     <FlipCountdown

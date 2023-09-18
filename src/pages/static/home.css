@@ -40,7 +40,7 @@ body {
 .invite-wrapper {
     position: relative;
     text-align: left;
-    padding-bottom: 210%;
+    padding-bottom: 225%;
 }
 
 .day-invite,
@@ -62,17 +62,24 @@ body {
 .closing-wrapper,
 .clock-wrapper {
     background-color: #224151;
-    border: 2px solid red;
 }
 
 .day-wrapper {
     padding-bottom: 20%;
 }
 
+.smaller-details-wrapper,
+.before-function-wrapper,
+.rsvp-wrapper,
+.accomodation-wrapper,
+.gift-wrapper {
+    padding-bottom: 15%;
+}
+
 .desc-container {
     max-width: 42%;
     padding-left: 25px;
-    padding-top: 40px;
+    padding-top: 25px;
     color: ivory;
 }
 
@@ -109,18 +116,22 @@ body {
     color: ivory;
     text-transform: uppercase;
     padding-left: 15px;
+    display: block;
 }
 
 .when-description,
 .where-description,
 .smaller-details-description,
-.dresscode-description {
-    padding: 10px 0 20px 30px;
+.dresscode-description,
+.before-function-description,
+.rsvp-description,
+.accomodation-description,
+.gift-description,
+.closing-description {
+    padding: 10px 0 10px 30px;
     color: ivory;
-}
-
-.dresscode-description {
-    display : block;
+    display: block;
+    max-width: 80%;
 }
 
 .dresscode-image {
@@ -158,4 +169,33 @@ body {
 .gift-content,
 .closing-content {
     text-align: left;
+}
+
+.form-input {
+    border-radius: 5px;
+    width: 95%;
+    max-width: 400px;
+    font-size: 16px;
+    border: none;
+    padding: 8px;
+}
+
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-form {
+    width: 85%;
+}
+
+.mb-3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form-input:focus {
+    outline: none;
 }
