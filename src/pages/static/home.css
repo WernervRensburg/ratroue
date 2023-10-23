@@ -1,9 +1,12 @@
 body {
     background-image: url("../../assets/main.jpeg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 750px;
     background-attachment: fixed;
-    background-position: center;
+    background-position: center top;
+    max-width: 750px;
+    border: 1px solid red;
+    margin: 0 auto;
 }
 
 .main-content {
@@ -33,14 +36,54 @@ body {
     text-transform: lowercase !important;
 }
 
-.day-image {
-    width: 100%;
-}
-
 .invite-wrapper {
     position: relative;
     text-align: left;
-    padding-bottom: 225%;
+    padding-bottom: 185%;
+}
+
+@media only screen and (max-width: 349px) {
+    .day-image-xsmall {
+        display: block;
+    }
+    .day-image-small,
+    .day-image {
+        display: none;
+    }
+
+    .invite-wrapper {
+        padding-bottom: 245% !important;
+    }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 509px) {
+    .day-image-small {
+        display: block;
+    }
+    .day-image-xsmall,
+    .day-image {
+        display: none;
+    }
+
+    .invite-wrapper {
+        padding-bottom: 215% !important;
+    }
+}
+
+@media only screen and (min-width: 510px) {
+    .day-image {
+        display: block;
+    }
+    .day-image-small,
+    .day-image-xsmall {
+        display: none;
+    }
+}
+
+.day-image,
+.day-image-small,
+.day-image-xsmall {
+    width: 100%;
 }
 
 .day-invite,
@@ -74,6 +117,24 @@ body {
 .accomodation-wrapper,
 .gift-wrapper {
     padding-bottom: 15%;
+}
+
+@media only screen and (max-width: 349px) {
+    .desc-container {
+        max-width: 80% !important;
+        padding-left: 25px;
+        padding-top: 25px;
+        color: ivory;
+    }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 509px) {
+    .desc-container {
+        max-width: 65% !important;
+        padding-left: 25px;
+        padding-top: 25px;
+        color: ivory;
+    }
 }
 
 .desc-container {
@@ -185,6 +246,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .contact-form {
@@ -198,4 +260,20 @@ body {
 
 .form-input:focus {
     outline: none;
+}
+
+.submit-button {
+    margin: 0 auto;
+}
+
+.btn-container {
+    text-align: center;
+}
+
+.images-wrapper {
+    border: 1px solid green;
+}
+
+.collage {
+    width: 100%;
 }

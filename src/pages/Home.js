@@ -6,6 +6,9 @@ import { FloatingLabel, Button, Form, Image } from "react-bootstrap";
 import initials from "../assets/initials.png";
 import dresscode from "../assets/dresscode.png";
 import desc2 from "../assets/desc2.png";
+import desc2small from "../assets/desc2small.png";
+import desc2xsmall from "../assets/desc2xsmall.png";
+import collage from "../assets/collage.png";
 
 import "./static/home.css";
 
@@ -55,6 +58,8 @@ function HomePage() {
             <div className="invite-wrapper">
                 <div className="day-invite">
                     <Image className="day-image" src={desc2} />
+                    <Image className="day-image-small" src={desc2small} />
+                    <Image className="day-image-xsmall" src={desc2xsmall} />
                 </div>
                 <div className="invite-details">
                     <span className="what-wrapper">
@@ -63,6 +68,8 @@ function HomePage() {
                     <br />
                     <div className="desc-container">
                         <span className="invite-description">
+                            Kom geniet 'n heerlike naweek troue saam ons!
+                            <br />
                             Jy word hartlik uitgenooi om in Ruben en Anjune se spesiale dag te deel.
                             <br />
                             Sien onder belangrike inligting rakende die troudag.
@@ -105,10 +112,13 @@ function HomePage() {
                     <span className="dresscode">kleredrag</span>
                     <br />
                     <span className="dresscode-description">
-                        Mans: swart broek, wit hemp, swart das (swart baadjie opsioneel)
+                        <strong>Swart</strong> en <strong>formeel</strong>
                         <br />
                         <br />
-                        Dames: Swart rok of broekpak (geen vrou mag enige vorm van wit dra nie)
+                        Mans: swart broek, wit hemp, swart das
+                        <br />
+                        <br />
+                        Dames: Swart rok of broekpak
                     </span>
                     <div className="dresscode-images">
                         <Image className="dresscode-image" src={dresscode} />
@@ -121,6 +131,7 @@ function HomePage() {
                     <br />
                     <span className="smaller-details-description">
                         Metgesel slegs per uitnodiging
+                        <br />
                         <br />
                         Kontant kroeg op die venue beskikbaar
                     </span>
@@ -205,7 +216,7 @@ function HomePage() {
                                         value={thirdSong}
                                     />
                                 </FloatingLabel>
-                                <div>
+                                <div className="btn-container">
                                     <Button className="btn btn-color submit-button" type="submit">
                                         submit
                                     </Button>
@@ -275,7 +286,6 @@ function HomePage() {
                     </span>
                 </div>
             </div>
-            <div className="images-wrapper"></div>
             <div className="clock-wrapper">
                 <div className="countdown-clock">
                     <FlipCountdown
@@ -285,6 +295,9 @@ function HomePage() {
                         endAt={"2024-03-30 15:00:00"}
                     />
                 </div>
+            </div>
+            <div className="images-wrapper">
+            <Image className="collage" src={collage} />
             </div>
         </div>
     );
