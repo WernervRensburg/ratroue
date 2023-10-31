@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
-import FlipCountdown from "@rumess/react-flip-countdown";
 import { FloatingLabel, Button, Form, Image } from "react-bootstrap";
+import PhoneNumber from "../util/PhoneNumber";
+import FlipClockCountdown from "@leenguyen/react-flip-clock-countdown";
+import "@leenguyen/react-flip-clock-countdown/dist/index.css";
 
 import initials from "../assets/initials.png";
 import dresscode from "../assets/dresscode.png";
@@ -9,6 +11,7 @@ import desc2 from "../assets/desc2.png";
 import desc2small from "../assets/desc2small.png";
 import desc2xsmall from "../assets/desc2xsmall.png";
 import collage from "../assets/collage.png";
+import hints from "../assets/VenueHints.jpg";
 
 import "./static/home.css";
 
@@ -115,10 +118,10 @@ function HomePage() {
                         <strong>Swart</strong> en <strong>formeel</strong>
                         <br />
                         <br />
-                        Mans: swart broek, wit hemp, swart das
+                        Mans: swart broek, wit hemp, swart das.
                         <br />
                         <br />
-                        Dames: Swart rok of broekpak
+                        Dames: Swart rok of broekpak (Geen vrou mag enige vorm van wit dra nie).
                     </span>
                     <div className="dresscode-images">
                         <Image className="dresscode-image" src={dresscode} />
@@ -239,11 +242,10 @@ function HomePage() {
                         Beide verblyf opsies sluit ontbyt in.
                         <br />
                         <br />
-                        Verblyf op die venue kan gerus met Ada Willemse gereel word.
-                        <br />
-                        <br />
-                        {/* TODO Make number clickable */}
-                        +2782 457 6322
+                        Verblyf op die venue kan gerus met Ada Willemse gereel word via{" "}
+                        <PhoneNumber phoneNumber={"082 457 6322"}></PhoneNumber>
+                        {". "}
+                        (voor einde Januarie laat weet)
                         <br />
                         <br />
                         Alternatiewe verlyf indien die venue se verblyf vol bespreek is:
@@ -252,13 +254,15 @@ function HomePage() {
                         Chrissiesmeer:
                         <br />
                         <br />
-                        Mcclouds en John Jack Inn - +2783 625 6097
+                        Mcclouds en John Jack Inn -{" "}
+                        <PhoneNumber phoneNumber={"083 625 6097"}></PhoneNumber>
                         <br />
                         <br />
-                        Stasie Meester - +2782 809 7962
+                        Stasie Meester - <PhoneNumber phoneNumber={"082 809 7962"}></PhoneNumber>
                         <br />
                         <br />
-                        King Edward Straat B&B - +2783 554 2068
+                        King Edward Straat B&B -{" "}
+                        <PhoneNumber phoneNumber={"060 970 5323"}></PhoneNumber>
                     </span>
                 </div>
             </div>
@@ -286,18 +290,22 @@ function HomePage() {
                     </span>
                 </div>
             </div>
+            <div className="hints-wrapper">
+                <div className="hints-content">
+                    <span className="hints">Wenke van die venue af</span>
+                    <Image className="hints-img" src={hints} />
+                </div>
+            </div>
             <div className="clock-wrapper">
                 <div className="countdown-clock">
-                    <FlipCountdown
-                        className="clock"
-                        hideYear
-                        size="large"
-                        endAt={"2024-03-30 15:00:00"}
-                    />
+                    <FlipClockCountdown className="flip-clock" to={new Date('2024-03-31').getTime()} />
+                </div>
+                <div className="labels">
+                    Test
                 </div>
             </div>
             <div className="images-wrapper">
-            <Image className="collage" src={collage} />
+                <Image className="collage" src={collage} />
             </div>
         </div>
     );
