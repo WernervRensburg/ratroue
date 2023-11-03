@@ -92,6 +92,9 @@ function HomePage() {
                         </span>
                     </div>
                     <br />
+                    <div className="sep-container" style={{ paddingBottom: "25px" }}>
+                        <hr className="seperator" />
+                    </div>
                     <div className="where-wrapper">
                         <span className="where">waar</span>
                         <span className="where-description">Florence Guest Farm,</span>
@@ -121,7 +124,9 @@ function HomePage() {
                         Mans: swart broek, wit hemp, swart das.
                         <br />
                         <br />
-                        Dames: Swart rok of broekpak (Geen vrou mag enige vorm van wit dra nie).
+                        Dames: Swart rok of broekpak
+                        <br />
+                        (Geen vrou mag enige vorm van wit dra nie).
                     </span>
                     <div className="dresscode-images">
                         <Image className="dresscode-image" src={dresscode} />
@@ -140,6 +145,9 @@ function HomePage() {
                     </span>
                 </div>
             </div>
+            <div className="sep-container" style={{ paddingBottom: "55px" }}>
+                <hr className="seperator" />
+            </div>
             <div className="before-function-wrapper">
                 <div className="before-function-content">
                     <span className="before-function">voor-troue funksie (vrydagaand)</span>
@@ -151,6 +159,9 @@ function HomePage() {
                         Tyd: 17:00 vir 17:30
                     </span>
                 </div>
+            </div>
+            <div className="sep-container" style={{ paddingBottom: "55px" }}>
+                <hr className="seperator" />
             </div>
             <div className="rsvp-wrapper">
                 <div className="rsvp-content">
@@ -219,15 +230,27 @@ function HomePage() {
                                         value={thirdSong}
                                     />
                                 </FloatingLabel>
+                                <FloatingLabel>
+                                    <label class="container">
+                                        <input type="checkbox" />
+                                        <span className="label-checkbox">
+                                            Vrydagaand funksie bywoning
+                                        </span>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </FloatingLabel>
                                 <div className="btn-container">
                                     <Button className="btn btn-color submit-button" type="submit">
-                                        submit
+                                        <strong className="btn-text">RSVP</strong>
                                     </Button>
                                 </div>
                             </Form>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="sep-container" style={{ paddingBottom: "55px" }}>
+                <hr className="seperator" />
             </div>
             <div className="accomodation-wrapper">
                 <div className="accomodation-content">
@@ -248,7 +271,7 @@ function HomePage() {
                         (voor einde Januarie laat weet)
                         <br />
                         <br />
-                        Alternatiewe verlyf indien die venue se verblyf vol bespreek is:
+                        Alternatiewe verblyf indien die venue se verblyf vol bespreek is:
                         <br />
                         <br />
                         Chrissiesmeer:
@@ -265,6 +288,9 @@ function HomePage() {
                         <PhoneNumber phoneNumber={"060 970 5323"}></PhoneNumber>
                     </span>
                 </div>
+            </div>
+            <div className="sep-container" style={{ paddingBottom: "55px" }}>
+                <hr className="seperator" />
             </div>
             <div className="gift-wrapper">
                 <div className="gift-content">
@@ -290,6 +316,9 @@ function HomePage() {
                     </span>
                 </div>
             </div>
+            <div className="sep-container">
+                <hr className="seperator" />
+            </div>
             <div className="hints-wrapper">
                 <div className="hints-content">
                     <span className="hints">Wenke van die venue af</span>
@@ -298,10 +327,18 @@ function HomePage() {
             </div>
             <div className="clock-wrapper">
                 <div className="countdown-clock">
-                    <FlipClockCountdown className="flip-clock" to={new Date('2024-03-31').getTime()} />
-                </div>
-                <div className="labels">
-                    Test
+                    <FlipClockCountdown
+                        className="flip-clock"
+                        to={new Date("2024-03-31").getTime()}
+                        labels={["DAYS", "HOURS", "MINUTES", "SECONDS"]}
+                        labelStyle={{
+                            fontSize: 12,
+                            fontWeight: 700,
+                            textTransform: "uppercase",
+                            color: "ivory",
+                            paddingTop: "5px",
+                        }}
+                    />
                 </div>
             </div>
             <div className="images-wrapper">
