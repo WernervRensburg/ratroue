@@ -26,11 +26,17 @@ function HomePage() {
         onSetSecondSong = ({ target: { value } }) => setSecondSong(value);
     const [thirdSong, setThirdSong] = useState(""),
         onSetThirdSong = ({ target: { value } }) => setThirdSong(value);
+    
+    const [fridayEvent, setFridayEvent] = useState(false);
+
+    const onSetFridayEvent = (event) => {
+        setFridayEvent(event.target.checked);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await fetch("https://Werner.pythonanywhere.com/contact/reachout/", {
+        await fetch("http://127.0.0.1:8000/rsvp/rsvp/", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -42,6 +48,7 @@ function HomePage() {
                 firstSong: firstSong,
                 secondSong: secondSong,
                 thirdSong: thirdSong,
+                fridayEvent: fridayEvent,
             }),
         });
         window.location.reload(false);
@@ -73,7 +80,9 @@ function HomePage() {
                         <span className="invite-description">
                             Kom geniet 'n heerlike naweek troue saam ons!
                             <br />
+                            <br />
                             Jy word hartlik uitgenooi om in Ruben en Anjune se spesiale dag te deel.
+                            <br />
                             <br />
                             Sien onder belangrike inligting rakende die troudag.
                         </span>
@@ -232,7 +241,7 @@ function HomePage() {
                                 </FloatingLabel>
                                 <FloatingLabel>
                                     <label class="container">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" onChange={onSetFridayEvent} />
                                         <span className="label-checkbox">
                                             Vrydagaand funksie bywoning
                                         </span>
