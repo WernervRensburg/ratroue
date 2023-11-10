@@ -26,17 +26,23 @@ function HomePage() {
         onSetSecondSong = ({ target: { value } }) => setSecondSong(value);
     const [thirdSong, setThirdSong] = useState(""),
         onSetThirdSong = ({ target: { value } }) => setThirdSong(value);
-    
+
     const [fridayEvent, setFridayEvent] = useState(false);
+
+    const [wedding, setWedding] = useState(false);
 
     const onSetFridayEvent = (event) => {
         setFridayEvent(event.target.checked);
     };
 
+    const onSetWedding = (event) => {
+        setWedding(event.target.checked);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await fetch("http://127.0.0.1:8000/rsvp/rsvp/", {
+        await fetch("https://rubenenanjune.pythonanywhere.com/rsvp/rsvp/", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -49,6 +55,7 @@ function HomePage() {
                 secondSong: secondSong,
                 thirdSong: thirdSong,
                 fridayEvent: fridayEvent,
+                wedding: wedding,
             }),
         });
         window.location.reload(false);
@@ -185,7 +192,11 @@ function HomePage() {
                         <br />
                         <br />
                         Bykomend: Voeg ook 3 liedjie versoeke by en of jy die vrydagaand voor-troue
-                        funksie gaan bywwon.
+                        funksie gaan bywoon.
+                        <br />
+                        <br />
+                        Indien jy nie die troue kan bywoon nie, RSVP asseblief nogsteeds en tick die{" "}
+                        <br /> 'Gaan nie die troue kan bywoon nie' blokkie.
                     </span>
                     <br />
                     <div className="rsvp-form-wrapper">
@@ -239,12 +250,19 @@ function HomePage() {
                                         value={thirdSong}
                                     />
                                 </FloatingLabel>
-                                <FloatingLabel>
+                                <FloatingLabel style={{ paddingBottom: "10px" }}>
                                     <label class="container">
                                         <input type="checkbox" onChange={onSetFridayEvent} />
                                         <span className="label-checkbox">
                                             Vrydagaand funksie bywoning
                                         </span>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </FloatingLabel>
+                                <FloatingLabel style={{ paddingBottom: "10px" }}>
+                                    <label class="container">
+                                        <input type="checkbox" onChange={onSetWedding} />
+                                        <span className="label-checkbox">Gaan nie die troue kan bywoon nie</span>
                                         <span class="checkmark"></span>
                                     </label>
                                 </FloatingLabel>
@@ -318,13 +336,6 @@ function HomePage() {
                     </span>
                 </div>
             </div>
-            <div className="closing-wrapper">
-                <div className="closing-content">
-                    <span className="closing-description">
-                        Ons sien baie uit om ons spesiale dag met jou te deel.
-                    </span>
-                </div>
-            </div>
             <div className="sep-container">
                 <hr className="seperator" />
             </div>
@@ -332,6 +343,13 @@ function HomePage() {
                 <div className="hints-content">
                     <span className="hints">Wenke van die venue af</span>
                     <Image className="hints-img" src={hints} />
+                </div>
+            </div>
+            <div className="closing-wrapper">
+                <div className="closing-content">
+                    <span className="closing-description">
+                        Ons sien baie uit om ons spesiale dag met jou te deel.
+                    </span>
                 </div>
             </div>
             <div className="clock-wrapper">
